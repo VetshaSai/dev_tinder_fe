@@ -10,7 +10,7 @@ const Navigation = () => {
   const user = useSelector((store)=> store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   //console.log("nav",user);
   const handelLogout = async () =>{
     try{
@@ -32,7 +32,7 @@ const Navigation = () => {
           <Link to ="/" className="btn btn-ghost text-xl">DevTinder</Link>
         </div>
         {user && <div className="flex-none gap-2">
-          <p>{`welcome ${user.firstName}`}</p>
+          <p>{`Welcome, ${user.firstName}`}</p>
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -57,7 +57,10 @@ const Navigation = () => {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/requests">Requests</Link>
               </li>
               <li>
                 <a onClick={handelLogout}>Logout</a>

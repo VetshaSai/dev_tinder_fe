@@ -25,7 +25,7 @@ const Login = () =>{
           navigate("/");
         } catch (err) {
           setError(err?.response?.data);
-        }
+        }                                                                                               
     };
 
     return (
@@ -56,6 +56,7 @@ const Login = () =>{
             <p className="text-red-500">{error}</p>
             <div className="card-actions justify-center m-4">
               <button className="btn btn-primary" onClick={handelLogin}>Login</button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
           </div>
         </div>
