@@ -7,18 +7,18 @@ import  {addUser} from "../utils/userSlice";
 
 
 const EditProfile = ({user}) =>{
-    //console.log("user",user);  
-    const [firstName, setFirstName] = useState(user.firstName);
-    const [lastName, setLastName] = useState(user.lastName);
-    const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-    const [age, setAge] = useState(user.age);
-    const [aboutUs, setAboutUs] = useState(user.aboutUs);
-    const [gender,setGender] = useState(user.gender);
-    const [error,setError] = useState("");
-    const dispatch = useDispatch();
-    const [showToast,setShowToast] = useState(false);
+    
+  const [firstName, setFirstName] = useState(user.firstName || "");
+  const [lastName, setLastName] = useState(user.lastName || "");
+  const [photoUrl, setPhotoUrl] = useState(user.photoUrl || "");
+  const [age, setAge] = useState(user.age || "");
+  const [aboutUs, setAboutUs] = useState(user.aboutUs || "");
+  const [gender, setGender] = useState(user.gender || "");
+  const [error,setError] = useState("");
+  const dispatch = useDispatch();
+  const [showToast,setShowToast] = useState(false);
 
-    const saveProfile=  async() =>{
+  const saveProfile=  async() =>{
         setError("");
         try {
           const res = await axios.patch(BASE_URL+"/profile/edit",{
@@ -46,7 +46,7 @@ const EditProfile = ({user}) =>{
       <div className="flex justify-evenly mx-10 my-10 ">
         <div className="card bg-base-300 w-96 h-fit shadow-xl">
           <div className="card-body">
-            <h2 className="card-title justify-center m-4">Login</h2>
+            <h2 className="card-title justify-center m-4">Edit Profile</h2>
             <label className="labelform-control w-full max-w-xs">
               <span className="lable-text">First Name:</span>
               <input
